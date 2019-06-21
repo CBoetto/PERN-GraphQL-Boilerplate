@@ -1,0 +1,15 @@
+#register, #login, #loginForm, #registerForm, #logout, #header{
+    display: flex;
+    flex-direction: row;
+}
+
+#header {
+    align-items: center;
+    justify-content: space-between;
+    background-color: lightgrey
+}
+
+#loginForm div, #registerForm div{
+    padding-left: 10px;
+    padding-right: 10px;
+}
