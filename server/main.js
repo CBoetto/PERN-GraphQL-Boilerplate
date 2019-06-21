@@ -1,11 +1,7 @@
-// import SequelizeStore from 'connect-session-sequelize'
-// import session from 'express-session'
-
 import express from 'express'
 import { ApolloServer } from 'apollo-server-express'
 import path from 'path'
 import cors from 'cors'
-import cookieParser from 'cookie-parser'
 import cookieSession from 'cookie-session'
 
 import db from './db'
@@ -13,8 +9,6 @@ import models from './db/models'
 import resolvers from './resolvers'
 import schema from './schema'
 
-
-// const sessionStore = new SequelizeStore({db})
 const app = express();
 
 // setting up cookies
@@ -41,7 +35,6 @@ const server = new ApolloServer({
     typeDefs: schema,
     resolvers,
     context: async ({ req, res }) => {
-        // console.log('the request', req.headers)
         let cookie = ''
         let clientToken = ''
         if (req.headers.cookie) {
@@ -53,7 +46,6 @@ const server = new ApolloServer({
         req,
         res,
         clientToken,
-        me: await models.User.findByLogin('UpperMagnolia')
         }
     }
 });
@@ -105,7 +97,6 @@ const startListening = () => {
 const syncDb = () => db.sync()
 
 async function bootApp() {
-    // await sessionStore.sync()
     await syncDb()
     await startListening()
 }

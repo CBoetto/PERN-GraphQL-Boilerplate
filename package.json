@@ -1,7 +1,7 @@
 {
-  "name": "socialclub",
+  "name": "perngraphql",
   "version": "1.0.0",
-  "description": "A Social Club For Creators and Other Interesting People",
+  "description": "A Boilerplate for Pern + GraphQL",
   "main": "index.js",
   "scripts": {
     "build-client": "webpack",
